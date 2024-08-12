@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ai-evolution {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 20px;
+  flex-direction: row; /* デフォルトは横並び */
 }
 
-.App-link {
-  color: #61dafb;
+.name {
+  font-size: 3vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+h1 {
+  font-size: 6vw;
+}
+
+.Image {
+  flex: 1;
+}
+
+.Level {
+  flex: 1;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.Level h3 {
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.Level h1 {
+  margin: 0;
+  text-align: left;
+}
+
+.Level p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.click-button {
+  background: none;
+  width: 50vw;
+  height: 3vw;
+  display: block;
+  margin: auto;
+  border-radius: 10px;
+}
+
+/* スマホ用スタイル */
+@media screen and (max-width: 600px) {
+  .ai-evolution {
+    flex-direction: column; /* 縦並びに変更 */
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .Image {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .Image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .Level {
+    margin-left: 0;
+  }
+
+  h1 {
+    font-size: 8vw; /* スマホ用にフォントサイズを大きく */
+  }
+
+  .name {
+    font-size: 5vw; /* スマホ用にフォントサイズを大きく */
+  }
+
+  .Level p {
+    font-size: 4vw; /* スマホ用にフォントサイズを大きく */
+  }
+
+  .click-button {
+    width: 80vw; /* ボタンの幅をスマホ用に広く */
+    height: 10vw; /* ボタンの高さをスマホ用に大きく */
   }
 }
