@@ -21,6 +21,12 @@ h1 {
 .Image {
   flex: 1;
 }
+.Exp{
+  padding: 50px;
+}
+.Lv{
+  padding: 50px;
+}
 
 .Level {
   flex: 1;
@@ -84,6 +90,12 @@ h1 {
     text-align: center;
     width: 100%;
     margin-bottom: 20px;
+  }
+  .Exp{
+    padding: 10px;
+  }
+  .Lv{
+    padding: 10px;
   }
 
   .Image img {

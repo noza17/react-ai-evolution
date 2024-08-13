@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './App.css';  // これにより、CSSファイルがインポートされます
+import './App.css';  
+import Loading from './Loading';  // Loadingコンポーネントをインポート
 
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
 
@@ -8,7 +9,7 @@ function App() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [count, setCount] = useState(10);
-  const [totalCount, setTotalCount] = useState(0); // 累計カウント用のステート
+  const [totalCount, setTotalCount] = useState(0); 
   const [isGenerating, setIsGenerating] = useState(false);
 
   const generateImage = async () => {
@@ -52,13 +53,13 @@ function App() {
   };
 
   const handleClick = async () => {
-    if (isGenerating) return; // 生成中なら無視
+    if (isGenerating) return; 
 
     setCount(prevCount => prevCount - 1);
-    setTotalCount(prevTotal => prevTotal + 1); // ボタンを押すごとに累計カウントを増やす
+    setTotalCount(prevTotal => prevTotal + 1); 
 
     if (count - 1 === 0) {
-      setIsGenerating(true); // 生成中フラグを立てる
+      setIsGenerating(true); 
 
       try {
         const imageUrl = await generateImage();
@@ -71,27 +72,28 @@ function App() {
       } catch (error) {
         console.error("Error generating image or description:", error);
       } finally {
-        setIsGenerating(false); // 生成が終わったらフラグを戻す
-        setCount(10); // カウントをリセット
+        setIsGenerating(false); 
+        setCount(10); 
       }
     }
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial', background: '#111',height: '100%' }}>
+    <div style={{ padding: '20px', fontFamily: 'Arial', background: '#111', height: '100%' }}>
+      {isGenerating && <Loading />}  {/* ここでLoadingを表示 */}
       <div className='ai-evolution'>
 
         <div className='Image'>
-          {imageUrl && <img src={imageUrl} alt="Generated Character" style={{ width: '80%', height: '80%', objectFit: 'contain', padding: '2vw'}} />}
+          {imageUrl && <img src={imageUrl} alt="Generated Character" style={{ width: '80%', height: '80%', objectFit: 'contain', padding: '2vw' }} />}
         </div>
 
         <div className='Level'>
           <div style={{ display: 'flex', marginBottom: '20px', justifyContent: 'flex-start' }}>
-            <div style={{ padding: '50px' }}>
+            <div className='Exp'>
               <h3>いまの経験値</h3>
               <h1>{totalCount}</h1>
             </div>
-            <div style={{ padding: '50px' }}>
+            <div className='Lv'>
               <h3>レベルアップまで</h3>
               <h1>{count}</h1>
             </div>
@@ -102,7 +104,7 @@ function App() {
           </div>
         </div>
       </div>
-      <button className='click-button' onClick={handleClick} disabled={isGenerating}></button>
+      <button className='click-button' onClick={handleClick} disabled={isGenerating}>クリック</button>
     </div>
   );
 }
