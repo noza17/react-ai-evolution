@@ -20,7 +20,7 @@ function App() {
       },
       body: JSON.stringify({
         model: "dall-e-3",
-        prompt: "かわいいドラゴンのキャラクター。アニメ風",
+        prompt: "アニメ風かわいいドラゴンのキャラクターを1024x1024の大きさで生成して",
         size: "1024x1024",
         quality: "standard",
         n: 1,
