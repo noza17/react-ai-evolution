@@ -20,7 +20,7 @@ function App() {
       },
       body: JSON.stringify({
         model: "dall-e-3",
-        prompt: "アニメ風かわいいドラゴンのキャラクターを1024x1024の大きさで生成して",
+        prompt: "アニメ風かわいいドラゴンのキャラクターを1024x1024の大きさの一枚絵で生成して",
         size: "1024x1024",
         quality: "standard",
         n: 1,
@@ -78,7 +78,7 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial' }}>
+    <div style={{ padding: '20px', fontFamily: 'Arial', background: '#111',height: '100%' }}>
       <div className='ai-evolution'>
 
         <div className='Image'>
@@ -102,7 +102,7 @@ function App() {
           </div>
         </div>
       </div>
-      <button className='click-button' onClick={handleClick} disabled={isGenerating}>クリック</button>
+      <button className='click-button' onClick={handleClick} disabled={isGenerating}></button>
     </div>
   );
 }

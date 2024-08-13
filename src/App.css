@@ -1,9 +1,12 @@
 .ai-evolution {
+  background: #ffffff; ;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ccc;
-  padding: 20px;
+  border: 3px solid #ffffff;
+  padding: 12px;
+  margin: 0.5vw;
   flex-direction: row; /* デフォルトは横並び */
 }
 
@@ -41,12 +44,33 @@ h1 {
 }
 
 .click-button {
-  background: none;
+  position: relative;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 250px;
+  color: #333;
+  font-family: "Noto Sans Japanese";
+  text-decoration: none;
+  color: #333;
+  line-height: 1.8;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+  background: #eee;
+  border-radius: 9999px;
+  border-bottom: 2px solid #999;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, .3);
   width: 50vw;
   height: 3vw;
   display: block;
   margin: auto;
-  border-radius: 10px;
+  padding: 1vw;
+}
+.click-button:active{
+  color: #fff;
+  background: #000000;
+  border-bottom: 2px solid #fff;
+  transform: translateY(3px);
 }
 
 /* スマホ用スタイル */
