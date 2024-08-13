@@ -22,10 +22,10 @@ h1 {
   flex: 1;
 }
 .Exp{
-  padding: 50px;
+  padding: 0;
 }
 .Lv{
-  padding: 50px;
+  padding: 0px 200px;
 }
 
 .Level {
@@ -59,7 +59,6 @@ h1 {
   text-decoration: none;
   color: #333;
   line-height: 1.8;
-  transition: 0.3s ease-in-out;
   font-weight: 500;
   background: #eee;
   border-radius: 9999px;
