@@ -79,7 +79,7 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial', background: '#111', height: '100%' }}>
+    <div style={{ padding: '20px', fontFamily: 'Arial', height: '100%' }}>
       {isGenerating && <Loading />}  {/* ここでLoadingを表示 */}
       <div className='ai-evolution'>
 
