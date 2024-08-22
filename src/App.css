@@ -126,3 +126,21 @@ h1 {
     height: 10vw; /* ボタンの高さをスマホ用に大きく */
   }
 }
+
+/* Login */
+/* src/App.css */
+input[type="text"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #218838;
+}
+.Login-p{
+  color: #fff;
+}

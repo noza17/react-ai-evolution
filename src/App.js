@@ -1,10 +1,23 @@
+// src/App.js
 import React, { useState } from 'react';
-import './App.css';  
+import './App.css';
+import Login from './Login';
 import Loading from './Loading';  // Loadingコンポーネントをインポート
+import CharacterLevel from './Character';  // 新しいコンポーネントをインポート
 
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [workspaceId, setWorkspaceId] = useState('');
+  const [userId, setUserId] = useState('');
+
+  const handleLogin = (wsId, uId) => {
+    setWorkspaceId(wsId);
+    setUserId(uId);
+    setIsLoggedIn(true);
+  };
+
   const [imageUrl, setImageUrl] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -80,31 +93,24 @@ function App() {
 
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial', height: '100%' }}>
+      {isLoggedIn ? (
+        <div>
+          <p className='Login-p'>Workspace ID: {workspaceId}</p>
+          <p className='Login-p'>User ID: {userId}</p>
+          {/* {imageUrl && <img src={imageUrl} alt="Generated Character" style={{ width: '80%', height: '80%', objectFit: 'contain', padding: '2vw' }} />} */}
+          <CharacterLevel
+            totalCount={totalCount}
+            count={count}
+            name={name}
+            description={description}
+            isGenerating={isGenerating}
+            handleClick={handleClick}
+          />
+        </div>
+      ) : (
+        <Login onLogin={handleLogin} />
+      )}
       {isGenerating && <Loading />}  {/* ここでLoadingを表示 */}
-      <div className='ai-evolution'>
-
-        <div className='Image'>
-          {imageUrl && <img src={imageUrl} alt="Generated Character" style={{ width: '80%', height: '80%', objectFit: 'contain', padding: '2vw' }} />}
-        </div>
-
-        <div className='Level'>
-          <div style={{ display: 'flex', marginBottom: '20px', justifyContent: 'flex-start' }}>
-            <div className='Exp'>
-              <h3>いまの経験値</h3>
-              <h1>{totalCount}</h1>
-            </div>
-            <div className='Lv'>
-              <h3>レベルアップまで</h3>
-              <h1>{count}</h1>
-            </div>
-          </div>
-          <div>
-            <h2 className='name'>{name}</h2>
-            <p style={{ fontSize: '30px' }}>{description}</p>
-          </div>
-        </div>
-      </div>
-      <button className='click-button' onClick={handleClick} disabled={isGenerating}>クリック</button>
     </div>
   );
 }
